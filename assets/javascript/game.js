@@ -6,9 +6,18 @@ var characters = ['luke skywalker', 'han solo', 'princess leia', 'lando', 'yoda'
 var chosenWord = characters[Math.floor(Math.random() * characters.length)];
 console.log(chosenWord);
 
-//array of player's selected letters
+//array for lettrs of current selected word
 
-var playerGuess = []
+var currentWord = []
+for (var i = 0; i < chosenWord.length; i++) {
+    currentWord[i] = "_";
+}
+
+//array for letters already guessed
+
+var alreadyGuess = []
+
+
 
 //wins accrued
 
@@ -25,8 +34,9 @@ var guessCount = 15
 function openGame () {
    alert('welcome')
    document.getElementById("wins").textContent = wins;
+   document.getElementById("currentWord").textContent = currentWord;
    document.getElementById("guessesLeft").textContent = guessCount;
-   document.getElementById("alreadyGuessed").textContent = playerGuess;
+//    document.getElementById("alreadyGuessed").textContent = ;
 
 }
 
