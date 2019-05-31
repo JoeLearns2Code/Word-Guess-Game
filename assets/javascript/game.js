@@ -6,16 +6,22 @@ var characters = ['luke skywalker', 'han solo', 'princess leia', 'lando', 'yoda'
 var chosenWord = characters[Math.floor(Math.random() * characters.length)];
 console.log(chosenWord);
 
-//array for lettrs of current selected word
+//array for letters of current selected word
 
 var currentWord = []
 for (var i = 0; i < chosenWord.length; i++) {
     currentWord[i] = "_";
+    currentWord.split;
 }
+
+//variable for correct guesses reducing remaining unknown letters
+
+var remainingLetters = currentWord.length;
 
 //array for letters already guessed
 
 var alreadyGuess = []
+
 
 
 
@@ -29,6 +35,8 @@ var guessCount = 15
 
 
 
+
+
 //starting state of game
 
 function openGame () {
@@ -36,18 +44,67 @@ function openGame () {
    document.getElementById("wins").textContent = wins;
    document.getElementById("currentWord").textContent = currentWord;
    document.getElementById("guessesLeft").textContent = guessCount;
-//    document.getElementById("alreadyGuessed").textContent = ;
+   document.getElementById("alreadyGuessed").textContent = alreadyGuess;
 
 }
 
 window.onload = openGame;
 
-//press a key to start
+//press a key to start  - then the game begins
+
+
+// while (remainingLetters > 0) {   //This is determines whether a round is won
+
+//press a letter key to try to guess the name
+
+document.onkeyup = function (event) {
+
+   var guessLetter = event.key.toLowerCase();
+
+
+   if (chosenWord.includes(guessLetter)) {
+      console.log("okay");
+      guessCount--;
+      remainingLetters--; 
+      currentWord.push(guessLetter);
+      currentWord.sort();
+      
+      
+   }
+   else {
+      console.log("nope");
+      guessCount--;
+      alreadyGuess.push(guessLetter + " ");
+
+   }
+
+
+   if (remainingLetters === 0){
+      alert("Congratulations You Won!")
+      wins++
+   }
+   
+   
+   
+   
+
+   document.getElementById("wins").textContent = wins;
+   document.getElementById("currentWord").textContent = currentWord;
+   document.getElementById("guessesLeft").textContent = guessCount;
+   document.getElementById("alreadyGuessed").textContent = alreadyGuess;
+
+
+   }
 
 
 
-//display underscores for selected word
 
+
+//(.split)  apple.split(" ")
+
+// ['a', 'p', 'p' 'l', 'e'] .sort ()
+
+// function to remove duplicates ()
 
 
 //if player selects a letter in the word: replace underscore with letter, add letter to player's Already Guessed array table, subtract from Guesses Remaining.  
@@ -58,6 +115,12 @@ window.onload = openGame;
 
 
 //if player completely matches the word: add 1 to Wins, reset Guesses Remaining and Letters Already Guessed, display character image, select a new word.
+//userGuess === currentWord
 
+// } - closing bracket of WHILE condition
 
 //if player runs out of Guesses Remaining: game over
+
+//play again - word function, logic function
+   //OR
+//quit game
