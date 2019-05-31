@@ -1,18 +1,34 @@
 //Array of words to guess
 
-var characters = ['luke skywalker', 'han solo', 'princess leia', 'lando', 'yoda', 'palpatine', 'darth vader', 'darth maul', 'count dooku', 'kylo ren', 'rey', 'chewbacca', 'jar jar', 'qui gon jinn', 'obiwan kenobi' ];
+var characters = ['luke skywalker', 'han solo', 'princess leia', 'lando', 'yoda', 'palpatine', 'darth vader', 'darth maul', 'count dooku', 'kylo ren', 'rey', 'chewbacca', 'jar jar', 'qui gon jinn', 'obiwan kenobi'];
 
 //random word selected
 var chosenWord = characters[Math.floor(Math.random() * characters.length)];
 console.log(chosenWord);
 
+
+
+//TODO: splitting currently chosen word into its component letters in an array
+
+var splitWord = []
+   for (var i =0; i < chosenWord.length; i++) {
+   chosenWord[i].split(" ");
+}
+//Should work like this:
+
+//(.split)  apple.split(" ")
+
+// ['a', 'p', 'p' 'l', 'e'] .sort ()
+
+
+
 //array for letters of current selected word
 
 var currentWord = []
 for (var i = 0; i < chosenWord.length; i++) {
-    currentWord[i] = "_";
-    currentWord.split;
+   currentWord[i] = "_";
 }
+
 
 //variable for correct guesses reducing remaining unknown letters
 
@@ -39,7 +55,7 @@ var guessCount = 15
 
 //starting state of game
 
-function openGame () {
+function openGame() {
    alert('welcome')
    document.getElementById("wins").textContent = wins;
    document.getElementById("currentWord").textContent = currentWord;
@@ -61,32 +77,38 @@ document.onkeyup = function (event) {
 
    var guessLetter = event.key.toLowerCase();
 
+   //if the key pressed equals a word in the chosen letter
 
-   if (chosenWord.includes(guessLetter)) {
-      console.log("okay");
+   //TODO: if player selects a viable letter(65-90) in the word: replace underscore with letter, add letter to player's Already Guessed array table, subtract from Guesses Remaining.  
+   if (event.keyCode >= 65 && event.keyCode <= 90 && chosenWord.includes(guessLetter)) {
+      console.log(guessLetter);
+      //replace letter in the currently selected word 
+      for (var j = 0; j < remainingLetters; j++); {
+      if(guessLetter == chosenWord[j])
+      {  currentWord[j].replace(guessLetter, "_")  }
+      }
       guessCount--;
-      remainingLetters--; 
-      currentWord.push(guessLetter);
-      currentWord.sort();
-      
-      
-   }
-   else {
+
+      //if player does not select a letter in the word: add letter to player's Already Guess array table, subtract from Guesses Remaining.
+
+   } else if (event.keyCode >= 65 && event.keyCode <= 90) {
       console.log("nope");
       guessCount--;
       alreadyGuess.push(guessLetter + " ");
-
+      
+      //TODO: add function to remove duplicates from alreadyGuess array
    }
 
+   //TODO: if player completely matches the word(i.e. 0 remaining letters) add 1 to Wins, reset Guesses Remaining and Letters Already Guessed, display character image, select a new word.
 
-   if (remainingLetters === 0){
+   if (remainingLetters === 0) {
       alert("Congratulations You Won!")
       wins++
    }
-   
-   
-   
-   
+
+
+
+
 
    document.getElementById("wins").textContent = wins;
    document.getElementById("currentWord").textContent = currentWord;
@@ -94,33 +116,30 @@ document.onkeyup = function (event) {
    document.getElementById("alreadyGuessed").textContent = alreadyGuess;
 
 
-   }
+}
 
 
 
-
-
-//(.split)  apple.split(" ")
-
-// ['a', 'p', 'p' 'l', 'e'] .sort ()
-
-// function to remove duplicates ()
-
-
-//if player selects a letter in the word: replace underscore with letter, add letter to player's Already Guessed array table, subtract from Guesses Remaining.  
-
-
-//if player does not select a letter in the word: add letter to player's Already Guess array table, subtract from Guesses Remaining.
-
-
-
-//if player completely matches the word: add 1 to Wins, reset Guesses Remaining and Letters Already Guessed, display character image, select a new word.
-//userGuess === currentWord
-
-// } - closing bracket of WHILE condition
-
-//if player runs out of Guesses Remaining: game over
+//TODO: //if player runs out of Guesses Remaining: game over
 
 //play again - word function, logic function
    //OR
 //quit game
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
