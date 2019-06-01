@@ -45,6 +45,7 @@ var alreadyGuess = []
 
 
 
+
 //wins accrued
 
 var wins = 0
@@ -89,7 +90,7 @@ document.onkeyup = function (event) {
       //replace letter in the currently selected word 
       for (var j = 0; j < remainingLetters; j++); {
       if(guessLetter == chosenWord[j])
-      {  currentWordDisplay[j].replace(guessLetter, "_")  }
+      {  currentWord[j] = guessLetter  }
       }
       guessCount--;
 
@@ -100,8 +101,17 @@ document.onkeyup = function (event) {
       guessCount--;
       alreadyGuess.push(guessLetter + " ");
       
-      //TODO: add function to remove duplicates from alreadyGuess array
-   }
+      } 
+
+      
+
+   
+
+   //TODO: add function to remove duplicates from alreadyGuess array
+
+   
+      
+   
 
    //TODO: if player completely matches the word(i.e. 0 remaining letters) add 1 to Wins, reset Guesses Remaining and Letters Already Guessed, display character image, select a new word.
 
