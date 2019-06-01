@@ -27,7 +27,11 @@ var splitWord = []
 var currentWord = []
 for (var i = 0; i < chosenWord.length; i++) {
    currentWord[i] = "_";
+   
 }
+
+//to display on the play screen
+var currentWordDisplay = (currentWord.join(' '));
 
 
 //variable for correct guesses reducing remaining unknown letters
@@ -58,7 +62,7 @@ var guessCount = 15
 function openGame() {
    alert('welcome')
    document.getElementById("wins").textContent = wins;
-   document.getElementById("currentWord").textContent = currentWord;
+   document.getElementById("currentWord").textContent = currentWordDisplay;
    document.getElementById("guessesLeft").textContent = guessCount;
    document.getElementById("alreadyGuessed").textContent = alreadyGuess;
 
@@ -85,7 +89,7 @@ document.onkeyup = function (event) {
       //replace letter in the currently selected word 
       for (var j = 0; j < remainingLetters; j++); {
       if(guessLetter == chosenWord[j])
-      {  currentWord[j].replace(guessLetter, "_")  }
+      {  currentWordDisplay[j].replace(guessLetter, "_")  }
       }
       guessCount--;
 
@@ -111,7 +115,7 @@ document.onkeyup = function (event) {
 
 
    document.getElementById("wins").textContent = wins;
-   document.getElementById("currentWord").textContent = currentWord;
+   document.getElementById("currentWord").textContent = currentWordDisplay;
    document.getElementById("guessesLeft").textContent = guessCount;
    document.getElementById("alreadyGuessed").textContent = alreadyGuess;
 
