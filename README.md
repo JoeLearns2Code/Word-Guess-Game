@@ -7,6 +7,8 @@ This project is currently a work in progress.  My goal is to gain the understand
 This project can be found in my github portfolio here: https://github.com/JoeLearns2Code/Word-Guess-Game
 The live page can be found here: https://joelearns2code.github.io/Word-Guess-Game/
 
+It can also be reached via my portfolio page here: https://joelearns2code.github.io/Bootstrap-Portfolio/portfolio.html
+
 ### Prerequisites
 
 You will need access to a common web browser to view the live page.  The data can also be pulled directly from GitHub via GitBash on PC or via Terminal on Mac.
