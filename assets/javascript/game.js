@@ -64,6 +64,8 @@ var characters = [
  //press a key to start  - then the game begins
  
  // while (remainingLetters > 0) {   //This is determines whether a round is won
+
+
  
  //press a letter key to try to guess the name
  
@@ -107,6 +109,29 @@ var characters = [
      alert("Congratulations You Won!");
      wins++;
    }
+
+
+    //TODO: //if player runs out of Guesses Remaining: game over, reset the chosenWord, guessCount, display currentWord;
+
+    if (guessCount === 0) {
+       alert("You Have Lost.");
+       currentWord = []
+       chosenWord = characters[Math.floor(Math.random() * characters.length)];
+       console.log("check this " + chosenWord);
+       currentWord = [];
+         for (var i = 0; i < chosenWord.length; i++) {
+         currentWord[i] = "_";
+                                 }
+       
+      
+      //  console.log("after array reset" + currentWord);
+      //  currentWord === chosenWord;
+       document.getElementById("currentWord").textContent = currentWordDisplay;
+       guessCount = 15;
+      //  alreadyGuess = [];
+       
+    }
+    
  
    document.getElementById("wins").textContent = wins;
    
@@ -114,7 +139,10 @@ var characters = [
    document.getElementById("alreadyGuessed").textContent = alreadyGuess;
  };
  
- //TODO: //if player runs out of Guesses Remaining: game over
+
+
+
+
  
  //play again - word function, logic function
  //OR
