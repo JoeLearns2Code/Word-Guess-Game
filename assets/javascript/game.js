@@ -95,8 +95,10 @@ var characters = [
      guessCount--;
  
      //if player does not select a letter in the word: add letter to player's Already Guess array table, subtract from Guesses Remaining.
+   } else if (event.keyCode >= 65 && event.keyCode <= 90 && alreadyGuess.includes(event.keyCode)) {
+     alert("Already guesssed!");
    } else if (event.keyCode >= 65 && event.keyCode <= 90) {
-     console.log("nope");
+    console.log("nope");
      guessCount--;
      alreadyGuess.push(guessLetter + " ");
    }
@@ -105,10 +107,10 @@ var characters = [
  
    //TODO: if player completely matches the word(i.e. 0 remaining letters) add 1 to Wins, reset Guesses Remaining and Letters Already Guessed, display character image, select a new word.
  
-   if (remainingLetters === 0) {
+   if (currentWord.toString() === chosenWord) {
      alert("Congratulations You Won!");
      wins++;
-   }
+   };
 
 
     //TODO: //if player runs out of Guesses Remaining: game over, reset the chosenWord, guessCount, display currentWord;
